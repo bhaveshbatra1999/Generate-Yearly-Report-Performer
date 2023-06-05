@@ -1,4 +1,2 @@
-InvoiceNumber,Item,Date,Amount,Tax,Total,Currency
-113086,"Concierge Services",2017-10-28,37593,7518.6,45111.6,EUR
-901542,"Waste management services",2017-10-26,224237,44847.4,269084,USD
-138362,"Concierge Services",2017-10-02,101158,20231.6,121390,RON
+InvoiceNumber,Item,Amount,Tax,Total,Currency,Date
+703916,"Professional Services",105815,21163,126978,RON,2017-10-07

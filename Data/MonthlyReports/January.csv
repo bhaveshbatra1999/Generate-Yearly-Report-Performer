@@ -1,2 +1,4 @@
-InvoiceNumber,Item,Amount,Tax,Total,Currency,Date
-929648,"Concierge Services",52290,10458,62748,USD,2017-01-28
+InvoiceNumber,Item,Date,Amount,Tax,Total,Currency
+690644,"Waste management services",2017-01-06,172026,34405.2,206431,USD
+214945,"IT Support",2017-01-28,61923,12384.6,74307.6,USD
+322746,"Professional Services",2017-01-23,289573,57914.6,347488,CAD

@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>673.6,1814.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>844,1814.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -102,9 +102,7 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACME\Delete MonthlyReports Folder_If-Exists.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="ACME\Delete MonthlyReports Folder_If-Exists.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_MonthlyReportsFolder_Path">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;Download_Reports_Location&quot;).ToString" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_MonthlyReportsFolder_Path">[in_Config("Download_Reports_Location").ToString]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="387.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Reached Process Workflow Succesfully, Now Process the Transaction&quot;]" />
@@ -125,18 +123,35 @@
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Monthly Reports Have Been Downloaded Succesfully.&quot;]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACME\Merge_Monthly_To_Yearly.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ACME\Merge_Monthly_To_Yearly.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_MonthlyReports_Folder_Location">[in_Config("Download_Reports_Location").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_YearlyReport_File_Location">[in_Config("Yearly_Report_File_Location").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_MonthlyReports_Folder_Location">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;Download_Reports_Location&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Year">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Year" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TaxID">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="TaxID" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Yearly Report File Has Been Generated&quot;]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACME\ACME Upload Yearly ReportPage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="ACME\ACME Upload Yearly ReportPage.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_UploadPage_URL">[in_Config("Upload_Yearly_Report_Page").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_YearlyReportFile_Path">[in_Config("Yearly_Report_File_Location").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_TaxID">[TaxID]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Year">[Year]</InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_ConfirmID">[ConfirmationID]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_UploadPage_URL">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;Upload_Yearly_Report_Page&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_YearlyReportFile_Path">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;Yearly_Report_File_Location&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TaxID">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="TaxID" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Year">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Year" />
+        </InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_ConfirmID">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="ConfirmationID" />
+        </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Yearly Report File Uploaded Succesfully&quot;]" />
